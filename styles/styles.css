@@ -261,11 +261,29 @@ main {
   transform: translateX(-50%);
   width: 1000px;
   height: 350px;
-  background-color: antiquewhite;
-  text-align: center;
+  background-image: url(/assets/ordenador.png);
+  background-size: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
-  
+  padding:40px;
 }
+
+.tarjeta h1{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 2.7rem;
+  width: 50%;
+}
+
+.tarjeta p{
+  display: flex;
+  text-align: center;
+  width: 50%;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+
 
 .seccion-2{
   margin-top: 300px;
@@ -428,9 +446,17 @@ footer {
   }
 
   .tarjeta{
-    max-width: 800px;
+    max-width: 850px;
     height: 300px;
     margin-bottom: 30px;
+  }
+
+  .tarjeta h1{
+    margin-top: 0;
+  }
+
+  .tarjeta p {
+    text-align: justify;
   }
   
 
@@ -486,6 +512,12 @@ footer {
 
 .tarjeta{
   width: 500px;
+}
+
+
+
+.tarjeta h1{
+  font-size: 1.6rem;
 }
 
 }
