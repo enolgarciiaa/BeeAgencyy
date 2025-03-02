@@ -81,12 +81,12 @@ nav {
   justify-content: space-around;
   width: 100%;
   height: 100px;
-  background-color:var(--color-principal-azul);
+  background-color:black;
   z-index: 1000;
 }
 
 nav.scrolled {
-  background-color: var(--color-principal-azul) ;
+  background-color:var(--color-principal-azul);
   opacity: 50%;
 }
 
@@ -172,6 +172,7 @@ nav ul {
   background-color: white;
   align-items: center;
   width: auto;
+  gap: 0px;
   list-style: none;
   z-index: 1000;
   text-align: center;
@@ -229,6 +230,8 @@ main {
   width: 100%;
 }
 
+/******************Estilos cabecera main**********************************/
+
 .cabecera-main {
   position: relative;
   width: 100%;
@@ -239,20 +242,33 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: var(--color-secundario-azul);
   font-family: Arial, sans-serif;
+}
+
+.cabecera-main video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1; 
 }
 
 
 .titulo-cabecera h2{
-  color: var(--color-secundario-amarillo);
-  font-size: 5rem;
+  color:var(--color-principal-amarillo);
+  font-size: 6rem;
 }
 
 .titulo-cabecera p{
-  color: var(--color-secundario-amarillo);
-  font-size: 2rem;
+  color:var(--color-principal-amarillo);
+  font-size: 1.8rem;
+  
 }
+
+
+/************************Estilos tarjeta superpuesta*****************************************/
 
 .tarjeta{
   position: absolute;
@@ -273,6 +289,7 @@ main {
   margin-top: 20px;
   font-size: 2.7rem;
   width: 50%;
+  color:var(--color-secundario-azul);
 }
 
 .tarjeta p{
@@ -285,11 +302,120 @@ main {
 
 
 
-.seccion-2{
-  margin-top: 300px;
+.impulsa-marca{
+  margin-top: 350px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.impulsa-marca h2{
+  font-size: 3rem;
+  color: var(--color-secundario-azul);
+}
+
+.impulsa-marca p{
+  font-size: 1.2rem;
+  width: 40%;
+  text-align: center;
+}
+
+/*******************Estilos carrusel********************************************+*/
+.container-carrusel{
+  width: 100%;
+  margin-top: 60px;
+  overflow: hidden;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid;
 }
 
 
+/* Estilos generales */
+
+
+/* Estilos de las filas */
+.fila {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+  width: max-content; /* Permite que los elementos sigan en fila */
+ 
+}
+
+
+/* Elementos individuales */
+.item {
+  font-size: 22px;
+  padding: 12px;
+  background: white;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Estilo especial */
+.especial {
+  border: 1px solid ;
+  border-radius: 40px;
+  font-weight: bold;
+}
+
+/* Aplica la animación a cada fila con diferentes velocidades */
+.fila-1 {
+  animation: mover 160s linear infinite;
+  animation: scrollAnimation-reverse 85s linear infinite;
+}
+
+.fila-2 {
+  animation: mover-reverse  125s linear infinite;
+  animation: scrollAnimation 85s linear infinite;
+}
+
+.fila-3 {
+  animation: mover 160s linear infinite;
+  animation: scrollAnimation-reverse 85s linear infinite;
+}
+
+.fila-4{
+  animation: mover-reverse 125s linear infinite;
+  animation: scrollAnimation 85s linear infinite;
+}
+
+/* Animación del desplazamiento */
+@keyframes mover {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes mover-reverse {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes scrollAnimation {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollAnimation-reverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.metodologia{
+  margin-top: 60px;
+}
 
 
 
@@ -302,7 +428,7 @@ footer {
   padding: 10px;
   flex: 0 1 auto;
   margin-bottom: 0;
-  background-color:var(--color-principal-azul);  
+  background-color: black;  
 }
 
 
