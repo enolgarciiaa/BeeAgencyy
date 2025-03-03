@@ -21,12 +21,14 @@ body {
 
 
 
+
+
 /* Estilos del preloader */
 #preloader {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: var(--color-principal-azul);
+  background-color:black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,13 +82,13 @@ nav {
   top: 0;
   justify-content: space-around;
   width: 100%;
-  height: 100px;
+  height: 70px;
   background-color:black;
   z-index: 1000;
 }
 
 nav.scrolled {
-  background-color:var(--color-principal-azul);
+  background-color:black;
   opacity: 50%;
 }
 
@@ -103,7 +105,7 @@ nav ul {
 .links {
   text-decoration: none;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .links:hover {
@@ -114,7 +116,7 @@ nav ul {
 
 
 .contacto1{
-  padding: 15px 20px;
+  padding: 10px 15px;
   border-radius: 40px;
   font-size: 1.2rem;
 }
@@ -125,6 +127,7 @@ nav ul {
   border: 1px solid white; 
   font-size: 1.4rem;
   transition:  0.7s ease-in-out;
+  cursor: pointer;
 }
 
 /* ======== MENÚ PRINCIPAL ======== */
@@ -149,13 +152,13 @@ nav ul {
   list-style: none;
   z-index: 1000;
   padding: 10px 0;
-  border-top: 2px solid var(--color-principal-azul);
+  border-top: 2px solid black;
   border-radius: 10px;
 }
 
 /* Estilos de los enlaces del submenu */
 .submenu li a {
-  color: var(--color-principal-azul);
+  color:black;
   font-weight: bold;
   font-size: 1.2rem;
   padding: 10px ;
@@ -176,7 +179,7 @@ nav ul {
   list-style: none;
   z-index: 1000;
   text-align: center;
-  border-top: 2px solid var(--color-principal-azul);
+  border-top: 2px solid black;
   border-radius: 10px;
 }
 
@@ -235,7 +238,7 @@ main {
 .cabecera-main {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: 800px;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -257,20 +260,21 @@ main {
 
 
 .titulo-cabecera h2{
-  color:var(--color-principal-amarillo);
+  color:black;
   font-size: 6rem;
 }
 
 .titulo-cabecera p{
-  color:var(--color-principal-amarillo);
+  color:black;
   font-size: 1.8rem;
-  
 }
 
 
 /************************Estilos tarjeta superpuesta*****************************************/
 
 .tarjeta{
+  display: flex;
+  flex-direction: column;
   position: absolute;
   bottom: -250px; /* Hace que sobresalga del main */
   left: 50%;
@@ -289,7 +293,7 @@ main {
   margin-top: 20px;
   font-size: 2.7rem;
   width: 50%;
-  color:var(--color-secundario-azul);
+  color:black;
 }
 
 .tarjeta p{
@@ -300,10 +304,26 @@ main {
   text-align: justify;
 }
 
+.tarjeta button{
+  width: 20%;
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.tarjeta button:hover{
+  background-color:var(--color-secundario-amarillo);
+  transition:  0.7s ease-in-out;
+  font-size: 1.3rem;
+}
 
 
 .impulsa-marca{
-  margin-top: 350px;
+  margin-top: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -312,20 +332,20 @@ main {
 }
 
 .impulsa-marca h2{
-  font-size: 3rem;
-  color: var(--color-secundario-azul);
+  font-size: 3.5rem;
+  color:black;
 }
 
 .impulsa-marca p{
-  font-size: 1.2rem;
-  width: 40%;
+  font-size: 1.3rem;
+  width: 60%;
   text-align: center;
 }
 
 /*******************Estilos carrusel********************************************+*/
 .container-carrusel{
   width: 100%;
-  margin-top: 60px;
+  margin-top: 80px;
   overflow: hidden;
   padding: 5px 0;
   display: flex;
@@ -366,23 +386,23 @@ main {
 
 /* Aplica la animación a cada fila con diferentes velocidades */
 .fila-1 {
-  animation: mover 160s linear infinite;
-  animation: scrollAnimation-reverse 85s linear infinite;
+  animation: mover 200s linear infinite;
+  animation: scrollAnimation-reverse 200s linear infinite;
 }
 
 .fila-2 {
-  animation: mover-reverse  125s linear infinite;
-  animation: scrollAnimation 85s linear infinite;
+  animation: mover-reverse  205s linear infinite;
+  animation: scrollAnimation 205s linear infinite;
 }
 
 .fila-3 {
-  animation: mover 160s linear infinite;
-  animation: scrollAnimation-reverse 85s linear infinite;
+  animation: mover 200s linear infinite;
+  animation: scrollAnimation-reverse 200s linear infinite;
 }
 
 .fila-4{
-  animation: mover-reverse 125s linear infinite;
-  animation: scrollAnimation 85s linear infinite;
+  animation: mover-reverse 205s linear infinite;
+  animation: scrollAnimation 205s linear infinite;
 }
 
 /* Animación del desplazamiento */
@@ -413,9 +433,41 @@ main {
   }
 }
 
-.metodologia{
-  margin-top: 60px;
+
+/***********************Estilos Servicios***********************************************/
+
+.servicios{
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.servicios h2{
+  font-size: 3.5rem;
+  color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.seccion4{
+  margin-top: 80px;
+}
+
+
 
 
 
