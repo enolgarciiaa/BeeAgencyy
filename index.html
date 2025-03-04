@@ -4,9 +4,6 @@
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" >
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/styles.css" >
     <title>BeeAgency</title>
   </head>
@@ -23,54 +20,55 @@
       
         <!--MENU DE NAVEGACION-->
         <nav>
-          <img src="/assets/logo.png" alt="BeeAgency Logo" >
-
-          <input type="checkbox" id="menu-toggle" class="checkbox">
-          <ul class="menu">
-            <li><a href="/index.html" class="links">Inicio</a></li>
-            <li><a href="/views/beeagency.html" class="links">BeeAgency</a></li>
-            
-            <li>
-              <a href="/views/servicios.html" class="links">Servicios</a>
-
-              <ul class="submenu">
-                <li><a href="#">Diseño Web</a></li>
-                <li>
-                  <a href="#">Desarollo de negocio</a>
-                  <ul class="sub-submenu">
-                    <li><a href="#">Auditoria</a></li>
-                    <li><a href="#">Consultoria de negocio</a></li>
-                  </ul>
-                </li>
-
-                <li>
-                  <a href="#">Branding</a>
-                  <ul class="sub-submenu">
-                    <li><a href="#">Identidad de marca</a></li>
-                    <li><a href="#">Social Media</a></li>
-                    <li><a href="#">Comunicación</a></li>
-                  </ul>
-                </li>
+          <img src="/assets/logo.png" alt="BeeAgency Logo">
+      
+          <!-- Botón de hamburguesa -->
+          <label for="menu-toggle" class="hamburger">&#9776;</label>
+          <input type="checkbox" id="menu-toggle">
+      
+          <!-- Contenedor del menú -->
+          <div class="menu-container">
+              <ul class="menu">
+                  <li>
+                      <div class="cube">
+                          <a href="/index.html" class="links front">Home</a>
+                          <span class="back">Home</span>
+                      </div>
+                      <hr class="hr-line">
+                  </li>
+                  <li>
+                      <div class="cube">
+                          <a href="/views/beeagency.html" class="links front">BeeAgency</a>
+                          <span class="back">BeeAgency</span>
+                      </div>
+                      <hr class="hr-line">
+                  </li>
+                  <li>
+                      <div class="cube">
+                          <a href="/views/servicios.html" class="links front">Services</a>
+                          <span class="back">Services</span>
+                      </div>
+                      <hr class="hr-line">
+                  </li>
+                  <li>
+                      <div class="cube">
+                          <a href="/views/actualidad.html" class="links front">Blog</a>
+                          <span class="back">Blog</span>
+                      </div>
+                      <hr class="hr-line">
+                  </li>
+                  <li>
+                      <div class="cube">
+                          <a href="/views/contacto.html" class="links front">Contact Us</a>
+                          <span class="back">Contact Us</span>
+                      </div>
+                  </li>
               </ul>
-            </li>
-            <li><a href="/views/actualidad.html" class="links">Actualidad</a></li>
-            <li><a href="/views/contacto.html" class="links">Contacto</a></li>
-
-          </ul>
-           
-          <button type="button" class="contacto1">Conocenos</button>
-          
-          <!--BOTON DE HAMBURGUESA-->
-          
-        <label for="menu-toggle" class="menu-toggle">
-            <img src="/assets/menu-svgrepo-com(6).svg" alt="boton responsivo">
-        </label>
-        
-        </nav>
-
-        
-    
-
+          </div>
+      </nav>
+      
+      
+        <!--ESTRUCTURA MAIN-->
       <main>
         <section class="cabecera-main">
           <video autoplay loop muted>
