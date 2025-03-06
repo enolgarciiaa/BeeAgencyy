@@ -25,7 +25,7 @@
       
         <!--MENU DE NAVEGACION-->
         <nav>
-          <img src="/assets/logo.png" alt="BeeAgency Logo">
+          <a href="index.html"><img src="/assets/logo.png" alt="BeeAgency Logo"></a>
       
           <!-- Botón de hamburguesa -->
           <label for="menu-toggle" class="hamburger">&#9776;</label>
@@ -65,7 +65,7 @@
                   <li>
                       <div class="cube">
                         <a href="/views/contacto.html" class="links front">ContactUs</a>
-                        <span class="back"><a href="#">Contact Us</a><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a></span>
+                        <span class="back"><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a><a href="#">ContactUs</a></span>
                       </div>
                   </li>
               </ul>
@@ -77,26 +77,26 @@
       <main>
         <section class="cabecera-main">
           <video autoplay loop muted>
-            <source src="/assets/fondomain.mp4" type="video/mp4">
+            <source src="/assets/fondomain1.mp4" type="video/mp4">
           </video>
           <div class="titulo-cabecera">
-            <h2>Descubre el cambio</h2>
-            <p>En un entorno cada vez mas cambiante, la diferencia es la meta</p>
+            <h2>Descubre el <span  id="cambio-texto" class="amarillo"></span></h2>
+            <p>En un entorno cada vez mas cambiante, la diferencia es la meta.</p>
           </div>
 
           <div class="tarjeta">
-            <h1 data-aos="zoom-in" data-aos-anchor-placement="top-bottom">Agencia de Marketing Digital</h1>
-            <p data-aos="zoom-in">Descubre la revolución del Marketing Digital con nosotros integrando las últimas tendencias de Inteligencia Artificial, Procesos Automatizados y el lado más humano con la creatividad que nos representa</p>
-            <button type="button" data-aos="zoom-in">Únete al cambio</button>
+            <h1>Agencia de Marketing Digital</h1>
+            <p >Descubre la revolución del Marketing Digital con nosotros integrando las últimas tendencias de Inteligencia Artificial, Procesos Automatizados y el lado más humano con la creatividad que nos representa.</p>
+            <button type="button">Únete al cambio</button>
           </div>
         </section>
 
-        <section class="impulsa-marca" data-aos="flip-right">
+        <section class="impulsa-marca" >
           <h2>Impulsa tu marca en un océano azul</h2>
           <p>La diferencia es la ventaja más buscada, conoce más sobre los servicios de Bee Agency y cómo es nuestra metodología para destacar entre la multitud.</p>
         </section>
 
-        <div class="container-carrusel" data-aos="fade-up">
+        <div class="container-carrusel" >
           
             <div class="fila fila-1">
               <span class="item"><b>Social Media</b></span>
@@ -225,8 +225,48 @@
             </div>
         </div>
 
-        <section class="servicios">
-          <h2 data-aos="slide-up">Nuestros Servicios</h2>
+        <section class="metodologia">
+          <div class="metodologia-texto">
+            <h2>Metodología BeeAgency</h2>
+            <hr>
+            <p>Buscamos alinearnos con el cliente en búsqueda de su satisfacción, definiendo los objetivos, la estrategia para conseguirlos y lo más divertido, ¡las acciones!</p>
+            <button type="button">Unete al cambio</button>
+          </div>
+
+          <div class="card-container">
+            <div class="card active">
+              <p class="number-card">01</p>
+              <h3>Puntos de control</h3>
+              <p class="click">¡Haz click!</p>
+              <p class="texto-card">Analizamos a fondo tu negocio y entorno para establecer un punto de partida sólido que alinee metas claras con la misión de tu marca.
+              </p>
+              <img src="/assets/hito.png" alt="bandera punto de control">
+            </div>
+            <div class="card">
+              <p class="number-card">02</p>
+              <h3>Estrategia</h3>
+              <p class="click">¡Haz click!</p>
+              <p class="texto-card">Analizamos a fondo tu negocio y entorno para establecer un punto de partida sólido que alinee metas claras con la misión de tu marca.
+              </p>
+              <img src="/assets/estrategia.png" alt="icono estrategia">
+            </div>
+            <div class="card">
+              <p class="number-card">03</p>
+              <h3>Ejecución</h3>
+              <p class="click">¡Haz click!</p>
+              <p class="texto-card">Analizamos a fondo tu negocio y entorno para establecer un punto de partida sólido que alinee metas claras con la misión de tu marca.
+              </p>
+              <img src="/assets/sistema-operacional.png" alt="icono sistema operacional">
+            </div>
+            <div class="card">
+              <p class="number-card">04</p>
+              <h3>Optimización y medición</h3>
+              <p class="click">¡Haz click!</p>
+              <p class="texto-card">Analizamos a fondo tu negocio y entorno para establecer un punto de partida sólido que alinee metas claras con la misión de tu marca.
+              </p>
+              <img src="/assets/optimizacion-de-la-estructura-del-sitio.png" alt="icono optimizacion">
+            </div>
+        </div>
         </section>
         
         <section class="seccion4">
@@ -274,6 +314,8 @@
         <script src="/JS/AnimacionInicio.js"></script>
         <script src="/JS/mouse.js"></script>
         <script src="/JS/scroll.js"></script>
+        <script src="/JS/cambio-texto.js"></script>
+        <script src="/JS/card.js"></script>
         <!-- JavaScript de AOS (animaciones) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
         <script src="/JS/aos-init.js"></script>
