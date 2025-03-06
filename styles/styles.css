@@ -370,7 +370,7 @@ main {
   transform: translateX(-50%);
   width: 1000px;
   height: 350px;
-  background-image: url(/assets/ordenador.png);
+  background-image: url(../assets/ordenador.png);
   background-size: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
   padding:40px;
