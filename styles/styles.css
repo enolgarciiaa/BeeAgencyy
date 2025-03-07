@@ -174,11 +174,11 @@ nav img {
 }
 
 /* Efecto de aparición escalonado */
-.menu li:nth-child(1) { transition-delay: 0.1s; }
-.menu li:nth-child(2) { transition-delay: 0.2s; }
-.menu li:nth-child(3) { transition-delay: 0.3s; }
-.menu li:nth-child(4) { transition-delay: 0.4s; }
-.menu li:nth-child(5) { transition-delay: 0.5s; }
+.menu li:nth-child(1) { transition-delay: 0.2s; }
+.menu li:nth-child(2) { transition-delay: 0.3s; }
+.menu li:nth-child(3) { transition-delay: 0.4s; }
+.menu li:nth-child(4) { transition-delay: 0.5s; }
+.menu li:nth-child(5) { transition-delay: 0.6s; }
 
 /* Links */
 .links {
@@ -343,12 +343,16 @@ main {
 }
 
 .titulo-cabecera h2{
-  color:var(--color-principal-amarillo);
+  color:white;
   font-size: 5.5rem;
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
 }
 
 .titulo-cabecera p{
-  color:var(--color-principal-amarillo);
+  color:white;
   font-size: 1.5rem;
 }
 
@@ -381,6 +385,10 @@ main {
   justify-content: center;
   margin-top: 20px;
   font-size: 2.7rem;
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
   width: 50%;
   color:black;
 }
@@ -398,6 +406,9 @@ main {
   margin-top: 20px;
   padding: 10px 15px;
   font-size: 1.1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
   border-radius: 20px;
   border: 1px solid white;
   background-color: black;
@@ -424,6 +435,10 @@ main {
 
 .impulsa-marca h2{
   font-size: 4.5rem;
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   color:black;
 }
 
@@ -517,6 +532,10 @@ main {
 
 .metodologia-texto h2{
   font-size: 3rem;
+  font-family: "Cinzel", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   margin-top: 20px;
 }
 
@@ -535,6 +554,9 @@ main {
   background-color: black;
   margin-top: 20px;
   font-size: 1.1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .metodologia-texto button:hover{
@@ -592,7 +614,7 @@ main {
 .card img{
   width: 100px;
   position: relative;
-  top: 50px;
+  
   left: 50%;
 }
 
@@ -606,9 +628,10 @@ main {
   transition: all 0.3s ease-in-out;
   font-size: 16px;
   color: #333;
+  opacity: 0;
 }
-.card.active.texto-card{
-
+.card.active .texto-card{
+  opacity: 1;
 }
 
 
@@ -617,7 +640,9 @@ main {
 /************************ESTILOS SECCION 4***************************************/
 
 
-
+.seccion4{
+  margin-top: 500px;
+}
 
 
 
@@ -717,13 +742,56 @@ footer {
   }
 }
 
-/******************Estilos responsivos*****************************************/
+/******************Pantallas Portatil *****************************************/
 
+/* Ajustes para pantallas menores a 1366px sin cambiar a columna */
+@media (max-width: 1666px) {
+  .metodologia {
+    justify-content: space-around; /* Ajusta el espaciado */
+  }
 
+  .metodologia-texto {
+    width: 30%; /* Un poco más de espacio en pantallas pequeñas */
+  }
 
+  .metodologia-texto h2 {
+    font-size: 3rem;
+  }
+
+  .metodologia-texto p {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .metodologia-texto button {
+    width: 150px;
+    font-size: 0.9rem;
+  }
+
+  .card-container {
+    width: 65%;
+    gap: 5px;
+    
+  }
+
+  .card {
+    width: 200px;
+    height: 380px;
+    font-size: 16px;
+  }
+
+  .card.active {
+    width: 400px;
+    height: 380px;
+  }
+
+  .card img {
+    display: none;
+  }
+}
 
 /********************Pantallas Intermedias***********************************************/
-  @media (max-width: 968px) {
+  @media (max-width: 1024px) {
   body {
     flex-direction: column;
   }
@@ -733,26 +801,20 @@ footer {
     font-size: 4rem;
   }
 
+  
+
   #logo {
     width: 50%;
   }
 
-  /* Custom cursor */
-  #custom-cursor {
-    width: 15px;
-    height: 15px;
-  }
-
-  #custom-cursor.view-mode {
-    width: 40px;
-    height: 40px;
-    font-size: 12px;
+  #custom-cursor{
+    display: none;
   }
 
   /* Navbar */
   nav {
     height: 60px;
-    padding: 0 10px;
+    padding: 50px 20px;
   }
 
   nav img {
@@ -780,32 +842,32 @@ footer {
   .titulo-cabecera {
     width: 90%;
     height: auto;
-    padding: 20px;
+    padding: 30px;
   }
 
   .titulo-cabecera h2 {
-    font-size: 3rem;
+    font-size: 4.5rem;
   }
 
   .titulo-cabecera p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 
   /* Tarjeta */
   .tarjeta {
     width: 90%;
     height: auto;
-    padding: 20px;
+    padding: 20px 0px 20px 40px;
     bottom: -200px;
   }
 
   .tarjeta h1 {
     font-size: 2rem;
-    width: 100%;
+    width: 50%;
   }
 
   .tarjeta p {
-    width: 100%;
+    width: 50%;
     font-size: 1rem;
   }
 
@@ -815,11 +877,11 @@ footer {
 
   /* Sección "Impulsa tu marca" */
   .impulsa-marca h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
   }
 
   .impulsa-marca p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   /* Carrusel */
@@ -839,8 +901,17 @@ footer {
     text-align: center;
   }
 
+  .metodologia hr{
+    width: 100%;
+  }
+
   .metodologia-texto p {
     width: 100%;
+  }
+
+  .metodologia button{
+    position: relative;
+    left: 40%;
   }
 
   .card-container {
@@ -850,6 +921,7 @@ footer {
 
   .card {
     width: 90%;
+    text-align: center;
     height: auto;
   }
 
@@ -861,9 +933,16 @@ footer {
     margin-top: 50px;
   }
 
-  .card img {
-    width: 80px;
-    top: 30px;
+  .card img{
+    display: block;
+    width: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 45%;
+  }
+
+  .card.active img{
+    display: none;
   }
 
   /* Footer */
@@ -880,84 +959,316 @@ footer {
 
 
   
-  /* Estilos responsivos */
-@media screen and (max-width: 768px){
+  /**************Pantallas pequeñas*****************/
+@media (max-width: 820px){
+    #typing-text {
+      font-size: 4rem;
+    }
+
+    #custom-cursor{
+      display: none;
+    }
+    
+    #logo {
+      width: 60%;
+    }
+    
+    .titulo-cabecera {
+      width: 90%;
+      height: auto;
+      padding: 40px;
+    }
+    
+    .titulo-cabecera h2 {
+      font-size: 3.5rem;
+    }
+    
+    .titulo-cabecera p {
+      font-size: 1.2rem;
+    }
+    
+    .tarjeta {
+      width: 90%;
+      height: auto;
+      bottom: -150px;
+      padding: 20px;
+      background-size: cover;
+    }
+    
+    .tarjeta h1{
+      width: 50%;
+      font-size: 1.9rem;
+      margin-left: 20px;
+    }
+
+    .tarjeta p{
+      width: 50%;
+      font-size: 0.8rem;
+      margin-left: 30px;
+      
+    }
+    
+    .tarjeta button {
+      width: 50%;
+      font-size: 1rem;
+      margin-left: 30px;
+    }
+    
+    .impulsa-marca h2 {
+      font-size: 2.8rem;
+    }
+    
+    .impulsa-marca p {
+      font-size: 1.1rem;
+      width: 90%;
+    }
+    
+    .metodologia {
+      flex-direction: column;
+      text-align: center;
+      height: auto;
+    }
+    
+    .metodologia-texto {
+      width: 90%;
+    }
+
+    .metodologia button{
+      position: relative;
+      left: 37%;
+    }
+    
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card {
+      width: 90%;
+      height: auto;
+    }
+    
+    .card.active {
+      width: 90%;
+    }
+
+    .card img{
+      display: block;
+      width: 50px;
+      margin-bottom: 20px;
+      position: relative;
+      left: 45%;
+    }
+
+    .card.active img{
+      display: none;
+    }
+    
+    footer {
+      text-align: center;
+    }
+}
+
+/************Para 600px********************/
+@media (max-width: 600px) {
+
   #typing-text {
     font-size: 4rem;
   }
-  
-  #logo {
-    width: 60%;
+
+  #custom-cursor{
+    display: none;
   }
-  
+
   .titulo-cabecera {
     width: 90%;
     height: auto;
     padding: 20px;
   }
-  
+
   .titulo-cabecera h2 {
     font-size: 3rem;
   }
-  
+
   .titulo-cabecera p {
     font-size: 1.2rem;
   }
-  
+
   .tarjeta {
-    width: 90%;
+    width: 95%;
     height: auto;
-    bottom: -150px;
+    bottom: -250px;
     padding: 20px;
-    background-size: cover;
+    background-image: none;
+    background-color: white;
+    align-items: center;
+  }
+
+  .tarjeta h1 {
+    font-size: 2.5rem;
+    width: 90%;
+    
   }
   
-  .tarjeta h1, .tarjeta p {
-    width: 100%;
+
+  .tarjeta p {
+    width: 90%;
+    font-size: 1.1rem;
     text-align: center;
   }
-  
+
   .tarjeta button {
-    width: 80%;
-    font-size: 1rem;
+    width: 50%;
+    font-size: 1.1rem;
   }
-  
+
   .impulsa-marca h2 {
-    font-size: 3rem;
+    font-size: 2.2rem;
+    text-align: center;
   }
-  
+
   .impulsa-marca p {
     font-size: 1rem;
     width: 90%;
   }
-  
+
   .metodologia {
     flex-direction: column;
     text-align: center;
     height: auto;
+    padding: 20px;
   }
-  
+
+  .metodologia button{
+    position: relative;
+    left: 35%;
+  }
+
   .metodologia-texto {
-    width: 90%;
+    width: 100%;
   }
-  
+
   .card-container {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .card {
     width: 90%;
     height: auto;
+    padding: 15px;
   }
-  
-  .card.active {
-    width: 90%;
-  }
-  
-  footer {
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 }
 
+/*************Para moviles****************************/
+@media (max-width: 450px) {
 
+  #typing-text {
+    font-size: 3rem;
+  }
+
+  .cube .front,
+  .cube .back {
+    font-size: 3rem;
+  }
+
+  .titulo-cabecera {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .titulo-cabecera h2 {
+    font-size: 2em;
+  }
+
+  .titulo-cabecera p {
+    font-size: 0.7rem;
+  }
+
+  .tarjeta {
+    width: 95%;
+    height: auto;
+    bottom: -230px;
+    padding: 20px;
+    background-image: none;
+    background-color: white;
+    align-items: center;
+  }
+
+  .tarjeta h1 {
+    font-size: 2.2rem;
+    width: 90%;
+    
+  }
+  
+
+  .tarjeta p {
+    width: 90%;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .tarjeta button {
+    width: 50%;
+    font-size: 0.8rem;
+  }
+
+  .impulsa-marca h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .impulsa-marca p {
+    font-size: 0.8rem;
+    width: 90%;
+  }
+
+  
+
+  .metodologia {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .metodologia button{
+    position: relative;
+    left: 25%;
+  }
+
+  .metodologia-texto {
+    width: 100%;
+  }
+  .metodologia-texto h2{
+    font-size: 2.2rem;
+  }
+  .metodologia-texto p{
+    font-size: 0.8rem;
+  }
+  
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
