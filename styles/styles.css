@@ -21,7 +21,6 @@ body {
   height: 100vh;
   background-color:rgb(19, 19, 19) ;
   color:white ;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Estilos del preloader */
@@ -445,7 +444,7 @@ main {
   font-family: "Cinzel", serif;
   font-weight: 400;
   font-style: normal;
-  color: var(--text-color);
+  color: white;
 }
 
 .impulsa-marca p{
@@ -472,7 +471,7 @@ main {
   gap: 20px;
   white-space: nowrap;
   width: max-content; /* Permite que los elementos sigan en fila */
- color: var(--text-color);
+  color: white;
 }
 
 
@@ -537,12 +536,14 @@ main {
   font-weight: 400;
   font-style: normal;
   margin-top: 20px;
+  color: white;
 }
 
 .metodologia-texto p{
   width: 80%;
   margin-top: 10px;
   font-size: 1.1rem;
+  color: white;
 }
 
 .metodologia-texto button{
@@ -580,20 +581,23 @@ main {
 .card {
   width: 250px;
   height: 450px;
-  border: 1px solid;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
   padding: 20px 15px;
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+  color: white;
 }
 
 .number-card{
   font-size: 1.9rem;
+  color: white;
 }
 
 .card h3{
   margin-top: 100px;
+  color: white;
 }
 
 .card.active {
@@ -604,6 +608,7 @@ main {
 .click{
   text-decoration: underline;
   margin-top: 50px;
+  color: white;
 }
 
 .card.active .click{
@@ -613,7 +618,6 @@ main {
 .card img{
   width: 100px;
   position: relative;
-  
   left: 50%;
 }
 
@@ -627,6 +631,7 @@ main {
   transition: all 0.3s ease-in-out;
   font-size: 16px;
   opacity: 0;
+  color: white;
 }
 .card.active .texto-card{
   opacity: 1;
