@@ -1,0 +1,22 @@
+{
+    "noticias": [
+      {
+        "categoria": "tecnologia",
+        "titulo": "Nuevo avance en inteligencia artificial",
+        "contenido": "Investigadores han desarrollado un nuevo modelo de IA capaz de mejorar la predicción de enfermedades.",
+        "imagen": "assets/tecnologia.jpg"
+      },
+      {
+        "categoria": "marketing digital",
+        "titulo": "Gran final de la Champions League",
+        "contenido": "El partido entre los dos equipos más fuertes del torneo dejó a los aficionados al borde de sus asientos.",
+        "imagen": "assets/marketingdigital.jpg"
+      },
+      {
+        "categoria": "branding",
+        "titulo": "Nueva película rompe récords de taquilla",
+        "contenido": "El último estreno de ciencia ficción ha superado todas las expectativas en la taquilla mundial.",
+        "imagen": "assets/branding.jpg"
+      }
+    ]
+  }
