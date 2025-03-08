@@ -684,6 +684,7 @@ main {
   font-family: "Cinzel", serif;
   font-weight: 400;
   font-style: normal;
+  color: white;
 }
 
 .texto-iconos p{
@@ -819,73 +820,81 @@ main {
 }
 
 
-.container-formulario{
+.form-section{
   margin-top: 100px;
-  padding: 50px;
   display: flex;
-  justify-content: space-around;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
   margin-bottom: 100px;
 }
 
-
-
 .foto-formulario{
-  width: 60%;
-  height: 100%;
+  width: 50%;
+  height: 500px;
+  object-fit: cover;
 }
 
-form {
+.form-container{
   width: 40%;
-  background: #ffffff;
-  padding: 24px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 16px;
-  color: #333;
-}
 
 label {
   display: block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #555;
-  margin-bottom: 4px;
+  text-align: left;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
 }
 
-input, textarea {
+input, select, textarea {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
-  margin-bottom: 16px;
-  transition: border-color 0.2s ease-in-out;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: border 0.3s ease-in-out;
 }
 
-input:focus, textarea:focus {
-  border-color: #fbbf24;
+input:focus, select:focus, textarea:focus {
+  border-color:var(--color-principal-amarillo);
   outline: none;
 }
 
 button {
   width: 100%;
-  background-color: #fbbf24;
-  color: #fff;
+  background:var(--color-secundario-amarillo);
+  color: white;
   font-weight: bold;
   padding: 12px;
   border: none;
   border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  font-size: 16px;
+  font-size: 1.1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  transition: 0.3s ease-in-out;
 }
 
 button:hover {
-  background-color: #f59e0b;
+  background: #f59e0b;
 }
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.input-error {
+  border: 2px solid red !important;
+}
+
 
 
 
@@ -895,7 +904,7 @@ button:hover {
 
 footer {
   text-align: center;
-  padding: 10px;
+  padding: 50px;
   flex: 0 1 auto;
   margin-bottom: 0;
   background-color: black;  
@@ -1083,6 +1092,18 @@ footer {
   .noticias img{
     height: 200px;
   }
+  
+  .foto-formulario{
+    width: 70%;
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .form-container{
+    width: 30%;
+  }
+  
+
 }
 
 /********************Pantallas Intermedias***********************************************/
@@ -1278,6 +1299,20 @@ footer {
     font-size: 1rem;
   }
   
+  .form-section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .foto-formulario{
+    width: 80%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .form-container{
+    width: 80%;
+  }
   
 
   
@@ -1333,7 +1368,7 @@ footer {
     
     .tarjeta-texto{
       display: flex;
-      flex-direction: column; /* Hace que h1, p y button estén en columna */
+      flex-direction: column; 
       margin-left: 20px;
       margin-top: 50px;
       align-items: center;
@@ -1423,6 +1458,19 @@ footer {
     .card.active img{
       display: none;
     }
+    
+    .texto-iconos{
+      text-align: center;
+      width: 80%;
+    }
+
+    .texto-iconos h2{
+      font-size: 2.8rem;
+    }
+    .texto-iconos p{
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
 
     .texto-blog h2{
       text-align: center;
@@ -1444,6 +1492,25 @@ footer {
     
     .carruseliconos-container{
       width:80%;
+    }
+
+    .texto-formulario h2{
+      font-size: 2.8rem;
+    }
+
+    .form-section{
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .foto-formulario{
+      width: 80%;
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    .form-container{
+      width: 80%;
     }
     
     footer {
@@ -1627,6 +1694,22 @@ footer {
   .metodologia-texto p{
     font-size: 0.8rem;
   }
+
+  .texto-iconos h2{
+    font-size: 2.2rem;
+  }
+
+  .texto-iconos p{
+    font-size: 0.8rem;
+  }
+
+  .texto-blog h2{
+    font-size: 2.2rem;
+  }
+
+  .texto-blog p{
+    font-size: 0.8rem;
+  }
   
 
   .card-container {
@@ -1639,6 +1722,19 @@ footer {
     height: auto;
     padding: 15px;
   }
+
+  .texto-formulario h2{
+    font-size: 2.2rem;
+  }
+
+
+  .foto-formulario{
+    width: 80%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  
 
   .footer-container {
     flex-direction: column;
