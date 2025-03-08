@@ -385,7 +385,7 @@ main {
   display: flex;
   flex-direction: column; /* Hace que h1, p y button estén en columna */
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
   align-items: center;
   gap: 40px;
 }
@@ -1626,6 +1626,7 @@ footer {
     display: flex;
     flex-direction: column; /* Hace que h1, p y button estén en columna */
     align-items: center;
+    margin-top: 20px;
     margin-bottom: 100px;
   }
   
