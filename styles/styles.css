@@ -18,10 +18,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Hace que el body tenga el 100% de la altura de la pantalla */
-  height: 100vh;
   background-color:rgb(19, 19, 19) ;
   color:white ;
 }
+
 
 /* Estilos del preloader */
 #preloader {
@@ -373,6 +373,7 @@ main {
   bottom: -250px; /* Hace que sobresalga del main */
   left: 50%;
   transform: translateX(-50%);
+  gap: 30px;
   width: 1000px;
   height: 350px;
   background-color: white;
@@ -429,7 +430,7 @@ main {
   flex: 1; /* Hace que la imagen no sea tan grande */
   max-width: 500px;
   object-fit: cover;
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 
@@ -667,7 +668,7 @@ main {
 
 
 .container-iconos{
-  margin-top: 300px;
+  margin-top: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -702,11 +703,13 @@ main {
   width: 70%;
   gap: 20px;
   overflow: hidden;
-  width: 70%;
   margin-top: 100px;
-  margin-bottom: 100px;
 }
 
+
+.carruseliconos-container img{
+  width: 40px;
+}
 
 /*************************ESTILOS BLOG***************************************/
 .texto-blog{
@@ -1188,7 +1191,6 @@ footer {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
   }
   
-  
 
   /* Sección "Impulsa tu marca" */
   .impulsa-marca h2 {
@@ -1253,16 +1255,14 @@ footer {
   }
 
   .card img{
-    display: block;
+    display: flex;
     width: 50px;
     margin-bottom: 20px;
     position: relative;
     left: 45%;
   }
 
-  .card.active img{
-    display: none;
-  }
+  
 
   .noticias {
     display: flex;
@@ -1448,11 +1448,12 @@ footer {
     }
 
     .card img{
-      display: block;
+      display: flex;
       width: 50px;
       margin-bottom: 20px;
       position: relative;
       left: 45%;
+      opacity: 1;
     }
 
     .card.active img{
@@ -1643,8 +1644,8 @@ footer {
   }
   
   .tarjeta button{
-    padding: 10px 15px;
-    font-size: 1.1rem;
+    padding: 5px 10px;
+    font-size: 0.8rem;
     font-family: "Ubuntu", sans-serif;
     font-weight: 300;
     font-style: italic;
@@ -1652,6 +1653,10 @@ footer {
     background-color: black;
     border: 1px solid white;
     color: white;
+  }
+
+  .tarjeta button:hover{
+    font-size: 0.9rem;
   }
 
   .tarjeta img{
@@ -1682,7 +1687,7 @@ footer {
 
   .metodologia button{
     position: relative;
-    left: 25%;
+    left: 20%;
   }
 
   .metodologia-texto {
@@ -1701,6 +1706,10 @@ footer {
 
   .texto-iconos p{
     font-size: 0.8rem;
+  }
+
+  .carruseliconos-container img{
+    width: 30px;
   }
 
   .texto-blog h2{
@@ -1723,6 +1732,18 @@ footer {
     padding: 15px;
   }
 
+  .card img{
+    width: 50px;
+    position: relative;
+    left: 40%;
+    opacity: 1;
+  }
+
+  .card.active img{
+    opacity:0;
+  }
+
+
   .texto-formulario h2{
     font-size: 2.2rem;
   }
@@ -1730,7 +1751,7 @@ footer {
 
   .foto-formulario{
     width: 80%;
-    height: 180px;
+    height: 170px;
     object-fit: cover;
   }
   

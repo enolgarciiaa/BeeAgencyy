@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <!-- Estilos de AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <!--GOOGLE FONTS-->
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=DM+Serif+Text:ital@0;1&family=Fustat:wght@200..800&family=Imperial+Script&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,21 +91,21 @@
           </div>
 
           <div class="tarjeta">
-            <div class="tarjeta-texto">
+            <div class="tarjeta-texto" data-aos="fade up" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
               <h1>Agencia de Marketing Digital</h1>
               <p>Descubre la revolución del Marketing Digital con nosotros integrando las últimas tendencias de Inteligencia Artificial, Procesos Automatizados y el lado más humano con la creatividad que nos representa.</p>
               <button type="button">Únete al cambio</button>
             </div>
-            <img src="assets/fondotarjeta.png" alt="movil beeagency">
+            <img src="assets/fondotarjeta.png" alt="movil beeagency" data-aos="fade up" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
           </div>
         </section>
-
-        <section class="impulsa-marca" >
+        
+        <section class="impulsa-marca" data-aos="slide-up" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
           <h2>Impulsa tu marca en un océano azul</h2>
           <p>La diferencia es la ventaja más buscada, conoce más sobre los servicios de Bee Agency y cómo es nuestra metodología para destacar entre la multitud.</p>
         </section>
 
-        <div class="container-carrusel" >
+        <div class="container-carrusel" data-aos="slide-up" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
           
             <div class="fila fila-1">
               <span class="item"><b>Social Media</b></span>
@@ -232,7 +234,7 @@
             </div>
         </div>
 
-        <section class="metodologia">
+        <section class="metodologia" data-aos="slide-left" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
           <div class="metodologia-texto">
             <h2>Metodología BeeAgency</h2>
             <hr>
@@ -277,12 +279,12 @@
         </section>
         
         <section class="container-iconos">
-          <div class="texto-iconos">
+          <div class="texto-iconos" data-aos="slide-right" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
             <h2>Codo a codo con los mejores</h2>
             <p>Personalizamos tus necesidades para conseguir los mejores resultados de la mano de herramientas de primer nive</p>
           </div>
           
-          <div class="carruseliconos-container">
+          <div class="carruseliconos-container" data-aos="slide-right" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
             <div class="fila fila-1">
               <span class="item"><img src="assets/wordpress-icon.svg" alt="icono wordpress"></span>
               <span class="item"><img src="assets/VectorWiki-yAnVI__woocommerce.svg" alt="icono wordpress"></span>
@@ -362,12 +364,12 @@
 
         <!--BLOG-->
 
-        <section class="texto-blog">
+        <section class="texto-blog" data-aos="slide-up" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
           <h2>Actualidad</h2>
           <p>Conoce las últimas novedades sobre Marketing Digital, Consejos de Programación, Comunicación…</p>
         </section>
 
-        <div class="noticias">
+        <div class="noticias" data-aos="slide-up" data-aos-anchor-placement="top-bottom" data-aos-duration="3000">
           <section id="tecnologia">
             <h2>Tecnología</h2>
             <div class="noticia"></div>
@@ -390,7 +392,7 @@
           <h2>Contacta ahora</h2>
         </div>
         
-        <section class="form-section">
+        <div class="form-section">
           <img src="assets/FormularioHome.jpg" alt="fotografia beeagency" class="foto-formulario">
           <form id="contactForm" class="form-container">
             <label for="name">Nombre</label>
@@ -416,8 +418,8 @@
                   
             <button type="submit">Enviar</button>
           </form>
-          </div>
-        </section>
+        
+        </div>
         
         
       </main>
@@ -463,6 +465,10 @@
         <script src="JS/card.js"></script>
         <script src="JS/HomeBlog.js"></script>
         <script src="JS/HomeFormulario.js"></script>
+        <script src="JS/animacionesmain.js"></script>
+        <!-- Script de AOS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="JS/AOS.js"></script>
         
     </body>
 </html>
