@@ -4,7 +4,27 @@
   --color-principal-amarillo: #fdc500;
   --color-secundario-amarillo:#ffd500;
   --color-mouse-fosforito:#ebff00;
+  --bg-color: white;
+  --text-color: black;
+  --component-bg: white;
 }
+
+/************PARA CAMBIO OSCURO*******************/
+.dark-mode {
+  --bg-color: #191818;
+  --text-color: #ffffff;
+  --component-bg: #1e1e1e; /* Color oscuro para componentes */
+  --component-text: #ffffff;
+}
+
+#component {
+  background-color: var(--component-bg);
+  color: var(--component-text);
+  padding: 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
 
 * {
   margin: 0;
@@ -18,6 +38,9 @@ body {
   flex-direction: column;
   min-height: 100vh; /* Hace que el body tenga el 100% de la altura de la pantalla */
   height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Estilos del preloader */
@@ -126,7 +149,6 @@ nav.scrolled{
 nav img {
   width: 150px;
   height: auto;
-  margin: 0;
 }
 
 /* Menú desplegable */
@@ -185,8 +207,8 @@ nav img {
   text-decoration: none;
   color: white;
   display: inline-block;  /* Permite aplicar padding correctamente */
-  font-family: "DM Serif Text", serif;
-  font-weight: 400;
+  font-family: "Cinzel", serif;
+  font-weight:400;
   font-style: italic;
   transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
   display: flex;
@@ -234,7 +256,6 @@ nav img {
 .cube .front {
   color: white;
   transform: rotateX(0deg);
-  
 }
 
 /* Cara trasera */
@@ -317,7 +338,6 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: Arial, sans-serif;
 }
 
 .cabecera-main video{
@@ -346,7 +366,6 @@ main {
   color:white;
   font-size: 5.5rem;
   font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
   font-weight:400;
   font-style: normal;
 }
@@ -367,51 +386,48 @@ main {
 
 .tarjeta{
   display: flex;
-  flex-direction: column;
   position: absolute;
   bottom: -250px; /* Hace que sobresalga del main */
   left: 50%;
   transform: translateX(-50%);
   width: 1000px;
   height: 350px;
-  background-image: url(../assets/ordenador.png);
+  background-color: white;
   background-size: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
-  padding:40px;
+}
+
+.tarjeta-texto{
+  display: flex;
+  flex-direction: column; /* Hace que h1, p y button estén en columna */
+  margin-left: 20px;
+  margin-top: 50px;
+  align-items: center;
+  gap: 40px;
 }
 
 .tarjeta h1{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
   font-size: 2.7rem;
   font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
   font-weight:400;
   font-style: normal;
-  width: 50%;
-  color:black;
+  color: black;
 }
 
 .tarjeta p{
-  display: flex;
   text-align: center;
-  width: 50%;
-  margin-top: 20px;
-  text-align: justify;
+  color: black;
 }
 
 .tarjeta button{
-  width: 20%;
-  margin-top: 20px;
   padding: 10px 15px;
   font-size: 1.1rem;
   font-family: "Ubuntu", sans-serif;
   font-weight: 300;
   font-style: italic;
   border-radius: 20px;
-  border: 1px solid white;
   background-color: black;
+  border: 1px solid white;
   color: white;
 }
 
@@ -423,6 +439,16 @@ main {
   color: black;
 }
 
+.tarjeta img{
+  flex: 1; /* Hace que la imagen no sea tan grande */
+  max-width: 500px;
+  object-fit: cover;
+  margin-right: 100px;
+}
+
+
+
+/*************Estilos Impulsa tu marca*************************/
 
 .impulsa-marca{
   margin-top: 400px;
@@ -436,10 +462,9 @@ main {
 .impulsa-marca h2{
   font-size: 4.5rem;
   font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  color:black;
+  color: var(--text-color);
 }
 
 .impulsa-marca p{
@@ -460,17 +485,13 @@ main {
   border: 1px solid;
 }
 
-
-/* Estilos generales */
-
-
 /* Estilos de las filas */
 .fila {
   display: flex;
   gap: 20px;
   white-space: nowrap;
   width: max-content; /* Permite que los elementos sigan en fila */
- 
+ color: var(--text-color);
 }
 
 
@@ -478,7 +499,6 @@ main {
 .item {
   font-size: 22px;
   padding: 12px;
-  background: white;
   font-weight: 600;
   text-align: center;
 }
@@ -533,7 +553,6 @@ main {
 .metodologia-texto h2{
   font-size: 3rem;
   font-family: "Cinzel", serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   margin-top: 20px;
@@ -580,7 +599,7 @@ main {
 .card {
   width: 250px;
   height: 450px;
-  border: 1px solid black;
+  border: 1px solid;
   display: flex;
   flex-direction: column;
   padding: 20px 15px;
@@ -590,7 +609,6 @@ main {
 
 .number-card{
   font-size: 1.9rem;
-  color: gray;
 }
 
 .card h3{
@@ -627,7 +645,6 @@ main {
   transform: translateY(10px);
   transition: all 0.3s ease-in-out;
   font-size: 16px;
-  color: #333;
   opacity: 0;
 }
 .card.active .texto-card{
@@ -746,6 +763,9 @@ footer {
 
 /* Ajustes para pantallas menores a 1366px sin cambiar a columna */
 @media (max-width: 1666px) {
+
+  
+
   .metodologia {
     justify-content: space-around; /* Ajusta el espaciado */
   }
@@ -801,6 +821,11 @@ footer {
     font-size: 4rem;
   }
 
+
+  .cube .front,
+  .cube .back {
+    font-size: 5rem;
+  }
   
 
   #logo {
@@ -854,26 +879,20 @@ footer {
   }
 
   /* Tarjeta */
-  .tarjeta {
+  .tarjeta{
+    display: flex;
+    position: absolute;
+    bottom: -250px; /* Hace que sobresalga del main */
+    left: 50%;
+    transform: translateX(-50%);
     width: 90%;
-    height: auto;
-    padding: 20px 0px 20px 40px;
-    bottom: -200px;
+    height: 350px;
+    background-color: white;
+    background-size: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
   }
-
-  .tarjeta h1 {
-    font-size: 2rem;
-    width: 50%;
-  }
-
-  .tarjeta p {
-    width: 50%;
-    font-size: 1rem;
-  }
-
-  .tarjeta button {
-    width: 50%;
-  }
+  
+  
 
   /* Sección "Impulsa tu marca" */
   .impulsa-marca h2 {
@@ -965,6 +984,11 @@ footer {
       font-size: 4rem;
     }
 
+    .cube .front,
+    .cube .back {
+    font-size: 5rem;
+  }
+
     #custom-cursor{
       display: none;
     }
@@ -987,32 +1011,50 @@ footer {
       font-size: 1.2rem;
     }
     
-    .tarjeta {
-      width: 90%;
-      height: auto;
-      bottom: -150px;
-      padding: 20px;
-      background-size: cover;
+    
+    
+    .tarjeta-texto{
+      display: flex;
+      flex-direction: column; /* Hace que h1, p y button estén en columna */
+      margin-left: 20px;
+      margin-top: 50px;
+      align-items: center;
+      gap: 20px;
     }
     
     .tarjeta h1{
-      width: 50%;
-      font-size: 1.9rem;
-      margin-left: 20px;
-    }
-
-    .tarjeta p{
-      width: 50%;
-      font-size: 0.8rem;
-      margin-left: 30px;
-      
+      font-size: 2rem;
+      font-family: "Cinzel", serif;
+      font-weight:400;
+      font-style: normal;
+      color: black;
     }
     
-    .tarjeta button {
-      width: 50%;
+    .tarjeta p{
+      text-align: center;
       font-size: 1rem;
-      margin-left: 30px;
+      color: black;
     }
+    
+    .tarjeta button{
+      padding: 10px 15px;
+      font-size: 1.1rem;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      border-radius: 20px;
+      background-color: black;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .tarjeta img{
+      flex: 1; /* Hace que la imagen no sea tan grande */
+      max-width: 500px;
+      object-fit: cover;
+      margin-right:0px;
+    }
+
     
     .impulsa-marca h2 {
       font-size: 2.8rem;
@@ -1076,6 +1118,11 @@ footer {
     font-size: 4rem;
   }
 
+  .cube .front,
+  .cube .back {
+    font-size: 5rem;
+  }
+
   #custom-cursor{
     display: none;
   }
@@ -1094,33 +1141,13 @@ footer {
     font-size: 1.2rem;
   }
 
-  .tarjeta {
-    width: 95%;
-    height: auto;
-    bottom: -250px;
-    padding: 20px;
-    background-image: none;
-    background-color: white;
-    align-items: center;
-  }
+ 
 
-  .tarjeta h1 {
-    font-size: 2.5rem;
-    width: 90%;
-    
-  }
-  
 
-  .tarjeta p {
-    width: 90%;
-    font-size: 1.1rem;
-    text-align: center;
-  }
+/*tarjeta*/
 
-  .tarjeta button {
-    width: 50%;
-    font-size: 1.1rem;
-  }
+
+
 
   .impulsa-marca h2 {
     font-size: 2.2rem;
@@ -1192,33 +1219,47 @@ footer {
     font-size: 0.7rem;
   }
 
-  .tarjeta {
-    width: 95%;
-    height: auto;
-    bottom: -230px;
-    padding: 20px;
-    background-image: none;
-    background-color: white;
-    align-items: center;
-  }
-
-  .tarjeta h1 {
-    font-size: 2.2rem;
-    width: 90%;
-    
-  }
   
 
-  .tarjeta p {
-    width: 90%;
-    font-size: 0.8rem;
+  .tarjeta-texto{
+    display: flex;
+    flex-direction: column; /* Hace que h1, p y button estén en columna */
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  
+  .tarjeta h1{
+    font-size: 1.5rem;
+    font-family: "Cinzel", serif;
+    font-weight:400;
+    font-style: normal;
+    color: black;
+  }
+  
+  .tarjeta p{
     text-align: center;
+    font-size: 0.5rem;
+    color: black;
+  }
+  
+  .tarjeta button{
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    border-radius: 20px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
   }
 
-  .tarjeta button {
-    width: 50%;
-    font-size: 0.8rem;
+  .tarjeta img{
+    flex: 1; /* Hace que la imagen no sea tan grande */
+    max-width: 500px;
+    object-fit: cover;
   }
+
 
   .impulsa-marca h2 {
     font-size: 2.2rem;
