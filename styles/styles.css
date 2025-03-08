@@ -4,25 +4,6 @@
   --color-principal-amarillo: #fdc500;
   --color-secundario-amarillo:#ffd500;
   --color-mouse-fosforito:#ebff00;
-  --bg-color: white;
-  --text-color: black;
-  --component-bg: white;
-}
-
-/************PARA CAMBIO OSCURO*******************/
-.dark-mode {
-  --bg-color: #191818;
-  --text-color: #ffffff;
-  --component-bg: #1e1e1e; /* Color oscuro para componentes */
-  --component-text: #ffffff;
-}
-
-#component {
-  background-color: var(--component-bg);
-  color: var(--component-text);
-  padding: 20px;
-  border-radius: 8px;
-  transition: background-color 0.3s;
 }
 
 
@@ -38,8 +19,8 @@ body {
   flex-direction: column;
   min-height: 100vh; /* Hace que el body tenga el 100% de la altura de la pantalla */
   height: 100vh;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color:rgb(19, 19, 19) ;
+  color:white ;
   transition: background-color 0.3s, color 0.3s;
 }
 
