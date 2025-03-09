@@ -22,6 +22,10 @@ body {
   color:white ;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 
 /* Estilos del preloader */
 #preloader {
