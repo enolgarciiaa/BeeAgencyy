@@ -20,6 +20,7 @@ body {
   min-height: 100vh; /* Hace que el body tenga el 100% de la altura de la pantalla */
   background-color:rgb(19, 19, 19) ;
   color:white ;
+  overflow-x: hidden;
 }
 
 body.no-scroll {
@@ -675,6 +676,7 @@ main {
   margin-top: 250px;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
   align-items: center;
   background: radial-gradient(circle, black 20%, rgb(19, 19, 19) 100%);
 }
@@ -1011,6 +1013,10 @@ footer {
   .cabecera-main video{
     height:950px;
   }
+
+  .card{
+    width: 180px;
+  }
 }
 
 
@@ -1053,7 +1059,6 @@ footer {
   .card-container {
     width: 65%;
     gap: 5px;
-    
   }
 
   .card {
