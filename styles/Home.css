@@ -1,0 +1,1775 @@
+:root {
+  --color-principal-azul:#072AC8;
+  --color-secundario-azul:#0c7adb;
+  --color-principal-amarillo: #fdc500;
+  --color-secundario-amarillo:#ffd500;
+  --color-mouse-fosforito:#ebff00;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Hace que el body tenga el 100% de la altura de la pantalla */
+  background-color:rgb(19, 19, 19) ;
+  color:white ;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+
+/* Estilos del preloader */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color:black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+/* Texto animado */
+#typing-text {
+  color: white;
+  font-size: 8rem;
+  font-weight: bold;
+  border-right: 3px solid white; /* Simula el cursor de escritura */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Logo oculto por defecto */
+#logo {
+  width: 30%; /* Ajusta el tamaño según necesites */
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+/***************************Estilos mouse**************************************/
+
+#custom-cursor {
+  position: fixed;
+  width: 25px; /* Tamaño del círculo */
+  height: 25px;
+  background-color:var(--color-mouse-fosforito) ;
+  border-radius: 50%;
+  pointer-events: none; /* Para que no bloquee los clics */
+  mix-blend-mode: difference; /* Para que resalte sobre los elementos */
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease-out;
+  z-index: 9000; /* Asegura que esté encima de todo */
+}
+
+
+#custom-cursor.view-mode {
+  width: 60px; /* Tamaño más grande */
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  opacity: 1;
+}
+
+#custom-cursor.view-mode::before {
+  content: "VIEW";
+}
+
+#cursor-tooltip {
+  position: fixed;
+  background:transparent;
+  opacity: 90%;
+  color: rgb(107, 107, 107);
+  font-size: 17px;
+  padding: 10px 10px;
+  border: 2px solid rgb(110, 110, 110);
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  pointer-events: none;
+  z-index: 9001;
+}
+
+
+/************************ESTILOS NAV******************************/
+
+/* Nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+nav.scrolled{
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Logo */
+nav img {
+  width: 150px;
+  height: auto;
+}
+
+/* Menú desplegable */
+.menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color:rgb(28, 28, 28);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Mostrar el menú cuando el checkbox está activado */
+#menu-toggle:checked ~ .menu-container {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estilos del menú */
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-align: center;
+}
+
+/* Estilos de los ítems del menú */
+.menu li {
+  width: 100%;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Aparece con animación */
+#menu-toggle:checked ~ .menu-container .menu li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Efecto de aparición escalonado */
+.menu li:nth-child(1) { transition-delay: 0.2s; }
+.menu li:nth-child(2) { transition-delay: 0.3s; }
+.menu li:nth-child(3) { transition-delay: 0.4s; }
+.menu li:nth-child(4) { transition-delay: 0.5s; }
+.menu li:nth-child(5) { transition-delay: 0.6s; }
+
+/* Links */
+.links {
+  text-decoration: none;
+  color: white;
+  display: inline-block;  /* Permite aplicar padding correctamente */
+  font-family: "Cinzel", serif;
+  font-weight:400;
+  font-style: italic;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  display: flex;
+}
+
+/* Botón de hamburguesa */
+.hamburger {
+  display: block;
+  font-size: 3rem;
+  color: white;
+  z-index: 1100;
+}
+
+/* Ocultar el checkbox */
+#menu-toggle {
+  display: none;
+}
+
+/* Efecto cubo */
+.cube {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 2000px;
+  height: 100px;
+  perspective: 1000px;
+}
+
+/* Estilos para cada cara del cubo */
+.cube .front,
+.cube .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  font-size: 5rem;
+  text-align: center;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Cara delantera */
+.cube .front {
+  color: white;
+  transform: rotateX(0deg);
+}
+
+/* Cara trasera */
+.cube .back {
+  background-color:white;
+  color: black;
+  transform: rotateX(-180deg);
+  padding: 50px;
+  font-family: "Imperial Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cube span a{
+  animation: marquee 10s linear infinite;
+  text-decoration: none;
+  color: black;
+  margin: 50px;
+}
+
+
+.hr-line{
+  border: none;
+  height: 1px;
+  background-color:rgb(67, 66, 66);
+}
+
+/* Efecto de giro */
+.cube:hover .front {
+  transform: rotateX(100deg);
+}
+
+.cube:hover .back {
+  transform: rotateX(0deg);
+}
+
+
+
+
+/*boton menu responsivo*/
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.menu-toggle img{
+  width: 60px;
+}
+
+.checkbox{
+  display: none;
+}
+
+
+
+
+/******************ESTILOS MAIN********************************************/
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+/******************Estilos cabecera main**********************************/
+
+.cabecera-main {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cabecera-main video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1; 
+}
+
+
+.titulo-cabecera{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 950px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid white;
+}
+
+.titulo-cabecera h2{
+  color:white;
+  font-size: 5.5rem;
+  font-family: "Cinzel", serif;
+  font-weight:400;
+  font-style: normal;
+}
+
+.titulo-cabecera p{
+  color:white;
+  font-size: 1.5rem;
+  font-family: "Prata", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.amarillo{
+  color: var(--color-principal-amarillo);
+}
+
+.azul{
+  color:var(--color-secundario-azul);
+}
+/************************Estilos tarjeta superpuesta*****************************************/
+
+.tarjeta{
+  display: flex;
+  position: absolute;
+  bottom: -250px; /* Hace que sobresalga del main */
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 30px;
+  width: 1000px;
+  height: 350px;
+  background-color: white;
+  background-size: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
+}
+
+.tarjeta-texto{
+  display: flex;
+  flex-direction: column; /* Hace que h1, p y button estén en columna */
+  margin-left: 20px;
+  margin-top: 30px;
+  align-items: center;
+  gap: 40px;
+}
+
+.tarjeta h1{
+  font-size: 2.7rem;
+  font-family: "Cinzel", serif;
+  font-weight:400;
+  font-style: normal;
+  color: black;
+}
+
+.tarjeta p{
+  text-align: center;
+  color: black;
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.tarjeta button{
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  border-radius: 20px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+
+
+.tarjeta button:hover{
+  background-color:var(--color-secundario-amarillo);
+  transition:  0.7s ease-in-out;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.tarjeta img{
+  flex: 1; /* Hace que la imagen no sea tan grande */
+  max-width: 500px;
+  object-fit: cover;
+  margin-right: 50px;
+}
+
+
+
+/*************Estilos Impulsa tu marca*************************/
+
+.impulsa-marca{
+  margin-top: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.impulsa-marca h2{
+  font-size: 4.5rem;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.impulsa-marca p{
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: "Prata", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/*******************Estilos carrusel********************************************+*/
+.container-carrusel{
+  width: 100%;
+  margin-top: 80px;
+  overflow: hidden;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid;
+}
+
+/* Estilos de las filas */
+.fila {
+  display: flex;
+  gap: 20px;
+  white-space: nowrap;
+  width: max-content; /* Permite que los elementos sigan en fila */
+  color: white;
+}
+
+
+/* Elementos individuales */
+.item {
+  font-size: 22px;
+  padding: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.item img{
+  width: 70px;
+}
+
+/* Estilo especial */
+.especial {
+  border: 1px solid ;
+  border-radius: 40px;
+  font-weight: bold;
+}
+
+/* Aplica la animación a cada fila con diferentes velocidades */
+.fila-1 {
+  animation: mover 200s linear infinite;
+  animation: scrollAnimation-reverse 200s linear infinite;
+}
+
+.fila-2 {
+  animation: mover-reverse  205s linear infinite;
+  animation: scrollAnimation 205s linear infinite;
+}
+
+.fila-3 {
+  animation: mover 200s linear infinite;
+  animation: scrollAnimation-reverse 200s linear infinite;
+}
+
+.fila-4{
+  animation: mover-reverse 205s linear infinite;
+  animation: scrollAnimation 205s linear infinite;
+}
+
+
+/***********************Estilos Servicios***********************************************/
+
+.metodologia{
+  margin-top: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.metodologia-texto{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+}
+
+.metodologia-texto h2{
+  font-size: 3rem;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 20px;
+  color: white;
+}
+
+.metodologia-texto p{
+  width: 80%;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-family: "Roboto Slab", serif;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+}
+
+.metodologia-texto button{
+  width: 190px;
+  border: 1px solid white;
+  border-radius: 50px;
+  padding: 10px 15px;
+  color: white;
+  background-color: black;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.metodologia-texto button:hover{
+  background-color: var(--color-secundario-amarillo);
+  font-size: 1.2rem;
+  transition:  0.7s ease-in-out;
+  color: black;
+}
+
+.metodologia hr{
+  width: 90%;
+  margin-top: 20px;
+}
+
+/* From Uiverse.io by joe-watson-sbf */ 
+.card-container {
+  display: flex;
+  gap: 10px;
+}
+
+.card {
+  width: 250px;
+  height: 450px;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;
+  font-size: 20px;
+  transition: all 0.3s ease-in-out;
+  color: white;
+}
+
+.number-card{
+  font-size: 1.9rem;
+  color: white;
+}
+
+.card h3{
+  margin-top: 100px;
+  color: white;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.card.active {
+  width: 600px;
+  height: 450px;
+}
+
+.click{
+  text-decoration: underline;
+  margin-top: 50px;
+  color: white;
+}
+
+.card.active .click{
+  visibility: hidden;
+}
+
+.card img{
+  width: 100px;
+  position: relative;
+  left: 50%;
+  opacity: 0;
+}
+
+.card.active img{
+  width: 50px;
+  margin-top: 90px;
+  opacity: 1;
+}
+
+.texto-card{
+  transform: translateY(10px);
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 100;
+  font-style: normal;
+  opacity: 0;
+  color: white;
+}
+.card.active .texto-card{
+  opacity: 1;
+}
+
+
+
+
+/************************ESTILOS CONTAINER ICONOS***************************************/
+
+
+.container-iconos{
+  margin-top: 250px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+  align-items: center;
+  background: radial-gradient(circle, black 20%, rgb(19, 19, 19) 100%);
+}
+
+.texto-iconos{
+  text-align: center;
+}
+
+.texto-iconos h2{
+  margin-top: 100px;
+  font-size: 4.5rem;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.texto-iconos p{
+  font-size: 1.3rem;
+  font-family: "Prata", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+.carruseliconos-container{
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 70%;
+  gap: 20px;
+  overflow: hidden;
+  margin-top: 100px;
+}
+
+
+.carruseliconos-container img{
+  width: 40px;
+}
+
+/*************************ESTILOS BLOG***************************************/
+.texto-blog{
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.texto-blog h2{
+  text-align: center;
+  font-size: 4.5rem;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+.texto-blog p{
+  text-align: center;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: "Prata", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+
+.noticias {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  max-width: 100%;
+  gap: 60px;
+}
+
+/* Estilos para cada sección */
+.noticias section {
+  width: 25%;
+  background: white;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover */
+.noticias section:hover {
+  transform: translateY(-90px);
+}
+
+/* Títulos de sección */
+.noticias h2 {
+  text-align: center;
+  font-family: "Cinzel", serif;
+  font-weight:400;
+  font-style: normal;
+  color: #333;
+  font-size: 22px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+/* Contenido de la noticia */
+.noticia {
+  text-align: center;
+}
+
+.noticia h3 {
+  font-size: 18px;
+  color:black;
+  margin-bottom: 10px;
+  font-family: "Prata", serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.noticia p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  font-family: "Roboto Slab", serif;
+  font-weight: 300;
+  font-style: normal;
+  color: black;
+}
+
+/* Imagen dentro de la noticia */
+.noticia img {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+/*****************************ESTILOS FORMULARIO*********************/
+
+.texto-formulario h2{
+  display: flex;
+  justify-content: center;
+  color: white;
+  margin-top: 300px;
+  font-size: 4.5rem;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: white;
+}
+
+
+.form-section{
+  margin-top: 100px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 100px;
+}
+
+.foto-formulario{
+  width: 50%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.form-container{
+  width: 40%;
+}
+
+
+label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  transition: border 0.3s ease-in-out;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color:var(--color-principal-amarillo);
+  outline: none;
+}
+
+button {
+  width: 100%;
+  background:var(--color-secundario-amarillo);
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-size: 1.1rem;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  background: #f59e0b;
+}
+
+.error-message {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.input-error {
+  border: 2px solid red !important;
+}
+
+
+
+
+
+/*****************ESTILOS FOOTER***********************************/
+
+
+footer {
+  text-align: center;
+  padding: 50px;
+  flex: 0 1 auto;
+  margin-bottom: 0;
+  background-color: black;  
+}
+
+
+.footer-container {
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 0;
+}
+
+.footer-section {
+  max-width: 300px;
+}
+
+.footer-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-section p, .footer-section a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-section a:hover {
+  color: #f5c400;
+}
+
+.social-links img {
+  width: 30px;
+  margin: 5px;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+
+
+
+/* Animación del desplazamiento */
+@keyframes mover {
+  to { transform: translateX(-100%); }
+}
+
+@keyframes mover-reverse {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes scrollAnimation {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes scrollAnimation-reverse {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/***************Animación nav********************/
+@keyframes marquee {
+  from {
+      transform: translateX(90%);
+  }
+  to {
+      transform: translateX(-200%);
+  }
+}
+
+
+
+/**********************Pantallas ExtraGrandes***********************************/
+
+@media (max-width: 3200px){
+  .cabecera-main{
+    height: 950px;
+  }
+  .cabecera-main video{
+    height:950px;
+  }
+
+  .card{
+    width: 180px;
+  }
+}
+
+
+
+
+/* Ajustes para pantallas menores a 1366px sin cambiar a columna */
+@media (max-width: 1366px) {
+
+  .cabecera-main{
+    height: 700px;
+  }
+  .cabecera-main video{
+    height:700px;
+  }
+
+  .metodologia {
+    justify-content: space-around; /* Ajusta el espaciado */
+  }
+
+  .metodologia-texto {
+    width: 30%; /* Un poco más de espacio en pantallas pequeñas */
+  }
+
+  .metodologia-texto h2 {
+    font-size: 3rem;
+  }
+
+  .metodologia-texto p {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .metodologia-texto button:hover{
+    background-color: var(--color-secundario-amarillo);
+    font-size: 1.2rem;
+    transition:  0.7s ease-in-out;
+    color: black;
+  }
+
+  .card-container {
+    width: 65%;
+    gap: 5px;
+  }
+
+  .card {
+    width: 200px;
+    height: 380px;
+    font-size: 16px;
+  }
+
+  .card.active {
+    width: 400px;
+    height: 380px;
+  }
+
+  .card h3{
+    margin-top: 20px;
+  }
+
+  .texto-card{
+    margin-top: 0px;
+  }
+
+  
+
+  .card.active img{
+    display: block;
+    margin-top: 60px;
+  }
+
+  .noticias {
+    gap: 30px;
+  }
+
+  /* Estilos para cada sección */
+  .noticias section {
+    width: 25%;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .noticias img{
+    height: 200px;
+  }
+  
+  .foto-formulario{
+    width: 70%;
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .form-container{
+    width: 30%;
+  }
+  
+
+}
+
+/********************Pantallas Intermedias***********************************************/
+  @media (max-width: 1024px) {
+  body {
+    flex-direction: column;
+  }
+
+  /* Preloader */
+  #typing-text {
+    font-size: 4rem;
+  }
+
+
+  .cube .front,
+  .cube .back {
+    font-size: 5rem;
+  }
+  
+
+  #logo {
+    width: 50%;
+  }
+
+  #custom-cursor{
+    display: none;
+  }
+
+  /* Navbar */
+  nav {
+    height: 60px;
+    padding: 50px 20px;
+  }
+
+  nav img {
+    width: 120px;
+  }
+
+  .hamburger {
+    font-size: 2.5rem;
+  }
+
+  /* Menú desplegable */
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    width: 100%;
+  }
+
+  /* Cabecera */
+  .cabecera-main {
+    height: 500px;
+  }
+
+  .titulo-cabecera {
+    width: 90%;
+    height: auto;
+    padding: 30px;
+  }
+
+  .titulo-cabecera h2 {
+    font-size: 4.5rem;
+  }
+
+  .titulo-cabecera p {
+    font-size: 1.4rem;
+  }
+
+  /* Tarjeta */
+  .tarjeta{
+    display: flex;
+    position: absolute;
+    bottom: -250px; /* Hace que sobresalga del main */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 350px;
+    background-color: white;
+    background-size: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Efecto flotante */
+  }
+  
+
+  /* Sección "Impulsa tu marca" */
+  .impulsa-marca h2 {
+    font-size: 3.2rem;
+  }
+
+  .impulsa-marca p {
+    font-size: 1.2rem;
+  }
+
+  /* Carrusel */
+  .container-carrusel {
+    margin-top: 50px;
+  }
+
+  /* Metodología */
+  .metodologia {
+    flex-direction: column;
+    margin-top: 100px;
+    height: auto;
+  }
+
+  .metodologia-texto {
+    width: 90%;
+    text-align: center;
+  }
+
+  .metodologia hr{
+    width: 100%;
+  }
+
+  .metodologia-texto p {
+    width: 100%;
+  }
+
+  .metodologia button{
+    position: relative;
+    left: 40%;
+  }
+
+  .metodologia button:hover{
+    font-size: 1rem;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    text-align: center;
+    height: auto;
+  }
+
+  .card.active {
+    width: 90%;
+  }
+
+  .card h3 {
+    margin-top: 50px;
+  }
+
+  .card img{
+    display: flex;
+    width: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 45%;
+  }
+
+  
+
+  .noticias {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .noticias section{
+    width: 80%;
+    
+  }
+
+  .noticias img{
+    width: 100%;
+    object-fit: cover;
+  }
+
+
+  .texto-blog h2{
+    text-align: center;
+    font-size: 3.2rem
+  }
+  
+  .texto-blog p{
+    text-align: center;
+    width: 90%;
+  }
+
+  .texto-iconos h2{
+    margin-top: 100px;
+    font-size: 3.2rem;
+  }
+  
+  .texto-iconos p{
+    font-size: 1rem;
+  }
+  
+  .form-section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .foto-formulario{
+    width: 80%;
+    height: 400px;
+    object-fit: cover;
+  }
+  
+  .form-container{
+    width: 80%;
+  }
+  
+
+  
+
+  /* Footer */
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    max-width: 90%;
+    text-align: center;
+  }
+}
+
+
+  
+  /**************Pantallas pequeñas*****************/
+@media (max-width: 820px){
+    #typing-text {
+      font-size: 4rem;
+    }
+
+    .cube .front,
+    .cube .back {
+    font-size: 5rem;
+  }
+
+    #custom-cursor{
+      display: none;
+    }
+    
+    #logo {
+      width: 60%;
+    }
+    
+    .titulo-cabecera {
+      width: 90%;
+      height: auto;
+      padding: 40px;
+    }
+    
+    .titulo-cabecera h2 {
+      font-size: 3.5rem;
+    }
+    
+    .titulo-cabecera p {
+      font-size: 1.2rem;
+    }
+    
+    
+    
+    .tarjeta-texto{
+      display: flex;
+      flex-direction: column; 
+      margin-left: 20px;
+      margin-top: 50px;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .tarjeta h1{
+      font-size: 2rem;
+      font-family: "Cinzel", serif;
+      font-weight:400;
+      font-style: normal;
+      color: black;
+    }
+    
+    .tarjeta p{
+      text-align: center;
+      font-size: 1rem;
+      color: black;
+    }
+    
+    .tarjeta button{
+      padding: 10px 15px;
+      font-size: 1.1rem;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      border-radius: 20px;
+      background-color: black;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .tarjeta img{
+      flex: 1; /* Hace que la imagen no sea tan grande */
+      max-width: 500px;
+      object-fit: cover;
+      margin-right:0px;
+    }
+
+    
+    .impulsa-marca h2 {
+      font-size: 2.8rem;
+    }
+    
+    .impulsa-marca p {
+      font-size: 1.1rem;
+      width: 90%;
+    }
+    
+    .metodologia {
+      flex-direction: column;
+      text-align: center;
+      height: auto;
+    }
+    
+    .metodologia-texto {
+      width: 90%;
+    }
+
+    .metodologia button{
+      position: relative;
+      left: 37%;
+    }
+    
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card {
+      width: 90%;
+      height: auto;
+    }
+    
+    .card.active {
+      width: 90%;
+    }
+
+    .card img{
+      display: flex;
+      width: 50px;
+      margin-bottom: 20px;
+      position: relative;
+      left: 45%;
+      opacity: 1;
+    }
+
+    .card.active img{
+      display: none;
+    }
+    
+    .texto-iconos{
+      text-align: center;
+      width: 80%;
+    }
+
+    .texto-iconos h2{
+      font-size: 2.8rem;
+    }
+    .texto-iconos p{
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    .texto-blog h2{
+      text-align: center;
+      font-size: 2.8rem;
+    }
+    
+    .texto-blog p{
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    .texto-iconos h2{
+      font-size: 2.8rem;
+    }
+    
+    .texto-iconos p{
+      font-size: 0.9rem;
+    }
+    
+    .carruseliconos-container{
+      width:80%;
+    }
+
+    .texto-formulario h2{
+      font-size: 2.8rem;
+    }
+
+    .form-section{
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .foto-formulario{
+      width: 80%;
+      height: 300px;
+      object-fit: cover;
+    }
+    
+    .form-container{
+      width: 80%;
+    }
+    
+    footer {
+      text-align: center;
+    }
+}
+
+/************Para 600px********************/
+@media (max-width: 600px) {
+
+  #typing-text {
+    font-size: 4rem;
+  }
+
+  .cube .front,
+  .cube .back {
+    font-size: 5rem;
+  }
+
+  #custom-cursor{
+    display: none;
+  }
+
+  .titulo-cabecera {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .titulo-cabecera h2 {
+    font-size: 3rem;
+  }
+
+  .titulo-cabecera p {
+    font-size: 1.2rem;
+  }
+
+
+  .impulsa-marca h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .impulsa-marca p {
+    font-size: 1rem;
+    width: 90%;
+  }
+
+  .metodologia {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .metodologia button{
+    position: relative;
+    left: 35%;
+  }
+
+  .metodologia-texto {
+    width: 100%;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/*************Para moviles****************************/
+@media (max-width: 450px) {
+
+  #typing-text {
+    font-size: 3rem;
+  }
+
+  .cube .front,
+  .cube .back {
+    font-size: 3rem;
+  }
+
+  .titulo-cabecera {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+  }
+
+  .titulo-cabecera h2 {
+    font-size: 2em;
+  }
+
+  .titulo-cabecera p {
+    font-size: 0.7rem;
+  }
+
+  
+
+  .tarjeta-texto{
+    display: flex;
+    flex-direction: column; /* Hace que h1, p y button estén en columna */
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .tarjeta h1{
+    font-size: 1.5rem;
+    font-family: "Cinzel", serif;
+    font-weight:400;
+    font-style: normal;
+    color: black;
+  }
+  
+  .tarjeta p{
+    text-align: center;
+    font-size: 0.5rem;
+    color: black;
+  }
+  
+  .tarjeta button{
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    border-radius: 20px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+  }
+
+  .tarjeta button:hover{
+    font-size: 0.9rem;
+  }
+
+  .tarjeta img{
+    flex: 1; /* Hace que la imagen no sea tan grande */
+    max-width: 500px;
+    object-fit: cover;
+  }
+
+
+  .impulsa-marca h2 {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+
+  .impulsa-marca p {
+    font-size: 0.8rem;
+    width: 90%;
+  }
+
+  
+
+  .metodologia {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 20px;
+  }
+
+  .metodologia button{
+    position: relative;
+    left: 20%;
+  }
+
+  .metodologia-texto {
+    width: 100%;
+  }
+  .metodologia-texto h2{
+    font-size: 2.2rem;
+  }
+  .metodologia-texto p{
+    font-size: 0.8rem;
+  }
+
+  .texto-iconos h2{
+    font-size: 2.2rem;
+  }
+
+  .texto-iconos p{
+    font-size: 0.8rem;
+  }
+
+  .carruseliconos-container img{
+    width: 30px;
+  }
+
+  .texto-blog h2{
+    font-size: 2.2rem;
+  }
+
+  .texto-blog p{
+    font-size: 0.8rem;
+  }
+  
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .card img{
+    width: 50px;
+    position: relative;
+    left: 40%;
+    opacity: 1;
+  }
+
+  .card.active img{
+    opacity:0;
+  }
+
+
+  .texto-formulario h2{
+    font-size: 2.2rem;
+  }
+
+
+  .foto-formulario{
+    width: 80%;
+    height: 170px;
+    object-fit: cover;
+  }
+  
+  
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
