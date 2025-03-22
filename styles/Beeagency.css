@@ -1,7 +1,7 @@
 :root {
     --color-principal-azul:#172f99;
     --color-secundario-azul:#1b568a;
-    --color-secundario-amarillo: #be9912;
+    --color-secundario-amarillo: #ffcb11;
     --color-principal-amarillo:#EFB810;
     --color-mouse-fosforito:#ebff00;
   }
@@ -333,20 +333,19 @@
   }
 
   .container-titulo-beeagency{
-    width: 1200px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.6);
   }
 
   .container-titulo-beeagency h1{
     font-family: "Cinzel", serif;
     font-weight:400;
     font-style: normal;
-    font-size: 10rem;
+    font-size: 8.5rem;
   }
 
 
@@ -367,7 +366,9 @@
 
   .text {
     font-size: 4rem;
-    font-weight: 700;
+    font-family: "Cinzel", serif;
+    font-weight:400;
+    font-style: normal;
     text-transform: uppercase;
     color: var(--color-principal-azul);
     line-height: 1.2;
@@ -421,7 +422,10 @@
     position: relative;
     left: 800px;
     font-size: 2.5rem;
-    
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400 ;
+    font-style: normal;
+    color: white;
 }
 
 .highlight{
@@ -515,7 +519,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 0, 0);
+    background-image: url(/assets/fondo-seccion3.png);
 }
 
 .titulo-sectores{
@@ -529,7 +533,9 @@
 
 .text-sectores{
     font-size: 4rem;
-    font-weight: 700;
+    font-family: "Cinzel", serif;
+    font-weight:400;
+    font-style: normal;
     text-transform: uppercase;
     color: var(--color-secundario-amarillo);
     line-height: 1.2;
@@ -543,7 +549,7 @@
     width: 40%;
     position: absolute;
     top: 30px;
-    left: 550px;
+    left: 590px;
     z-index: 1;
 }
 
@@ -573,69 +579,51 @@
 
 .container-cards{
     display: flex;
+    justify-content: space-evenly;
     margin-top: 150px;
     margin-bottom: 150px;
-    justify-content: space-evenly;
-}
-
-.card-front img{
-    width: 200px;
 }
 
 
-/* From Uiverse.io by vamsidevendrakumar */ 
+/* From Uiverse.io by gharsh11032000 */ 
 .card {
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-  }
-  
-  .card-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.999s;
-  }
-  
-  .card:hover .card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-  }
-  
-  .card-front {
-    background-color:rgb(60, 77, 155);
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    justify-content: center;
-    font-size: 24px;
-    transform: rotateY(0deg);
-  }
-  
-  .card-back {
-    background-color: var(--color-secundario-amarillo);
-    color: white;
-    border: 5px solid var(--color-secundario-amarillo);
-    display: flex;
-    border-radius: 10px;
-    transform: rotateY(180deg);
-  }
+  width: 320px;
+  height: 350px;
+  padding: 20px;
+  color: white;
+  background: transparent;
+  border: 2px solid var(--color-principal-amarillo);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transform-origin: center center;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-  .card-back p{
-    font-size: 1.3rem;
-    margin-top: 50px;
-    text-align: center;
-  }
+.card .main-content {
+  flex: 1;
+}
+
+
+
+.heading img{
+  width: 180px;
+  
+}
+
+.card .footer {
+  font-weight: 400;
+  margin-right: 4px;
+  color: black;
+}
+
+.card:hover {
+  border-radius: 12px;
+  background-color: var(--color-principal-amarillo);
+  scale: 0.95;
+  rotate: 8deg;
+  box-shadow: 0px 3px 187.5px 7.5px rgba(255, 107, 0, 0.4);
+}
 
 
 
@@ -658,8 +646,9 @@
 
   .text-valores{
     font-size: 4rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    font-family: "Cinzel", serif;
+    font-weight:400;
+    font-style: normal;
     color: var(--color-principal-azul);
     line-height: 1.2;
     position: relative;
@@ -702,9 +691,20 @@
     border-radius: 15px;
     padding: 20px;
     color: white;
-    font-weight: bold;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 4px 4px 10px rgb(103, 102, 102);
+}
+
+.cards h2{
+  font-family: "Cinzel", serif;
+  font-weight:400;
+  font-style: normal;
+}
+
+.cards p{
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400 ;
+  font-style: normal;
 }
 
 .cards:hover {
@@ -784,126 +784,234 @@
 .container-formulario-beeagency{
     width: 100%;
     height: 800px;
-    background-color: black;
+    background-image: url(/assets/fondo-seccion3.png);
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.form-container{
-    width: 50%;
-    height: auto;
+.texto{
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--color-principal-amarillo);
+  margin-top: 50px;
+  font-family: "Cinzel", serif;
+  font-weight:400;
+  font-style: normal;
 }
 
-label {
-    display: block;
-    text-align: left;
-    font-weight: bold;
-    color: white;
-  }
-  
-  input, select, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    transition: border 0.3s ease-in-out;
-  }
-  
-  input:focus, select:focus, textarea:focus {
-    border-color:var(--color-principal-amarillo);
-    outline: none;
-  }
-  
-  button {
-    width: 100%;
-    background:var(--color-secundario-amarillo);
-    color: white;
-    font-weight: bold;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-size: 1.1rem;
-    font-family: "Ubuntu", sans-serif;
-    font-weight: 300;
-    font-style: italic;
-    transition: 0.3s ease-in-out;
-  }
-  
-  button:hover {
-    background: #f59e0b;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 16px;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  
-  .input-error {
-    border: 2px solid red !important;
-  }
-  
-  
+/* From Uiverse.io by ammarsaa */ 
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 50%;
+  height: 80%;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1e1d1d;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: var(--color-principal-amarillo);
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: var(--color-principal-amarillo);
+}
+
+.message{
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
 
 
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: var(--color-principal-amarillo);
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.mensaje{
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  background-color:var(--color-secundario-amarillo);
+}
+
+.submit:hover {
+  background-color: var(--color-principal-amarillo) ;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
 
 
 /*****************************Estilos footer***********************************************/
 footer {
-    text-align: center;
-    padding: 50px;
-    flex: 0 1 auto;
-    margin-bottom: 0;
-    background-color: black;  
-  }
-  
-  
-  .footer-container {
-    display: flex;
-    justify-content:space-between;
-    flex-wrap: wrap;
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 0;
-  }
-  
-  .footer-section {
-    max-width: 300px;
-  }
-  
-  .footer-section h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: white;
-    text-decoration: underline;
-  }
-  
-  .footer-section p, .footer-section a {
-    font-size: 0.9rem;
-    text-decoration: none;
-    color: white;
-  }
-  
-  .footer-section a:hover {
-    color: #f5c400;
-  }
-  
-  .social-links img {
-    width: 30px;
-    margin: 5px;
-    transition: transform 0.3s ease;
-  }
-  
-  .social-links img:hover {
-    transform: scale(1.2);
-  }
-  
+  text-align: center;
+  padding: 50px;
+  flex: 0 1 auto;
+  margin-bottom: 0;
+  background-color: black;
+  width: 100%;
+  height: 500PX;  
+  display: flex;
+  align-items: center;
+}
+
+.footer-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.seccion1-footer{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.seccion1-footer h3{
+  font-size: 2.5rem;
+}
+
+.seccion1-footer p{
+  margin-top: 30px;
+  text-align: start;
+  width: 60%;
+  font-size: 1.2rem;
+}
+
+.seccion2-footer{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.seccion2-footer h4{
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+
+.seccion2-footer p{
+  font-size: 1rem;
+}
+
+.seccion3-footer{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.seccion3-footer ul li a {
+  font-size: 1.5rem;
+}
+
+.seccion4-footer{
+  width: 25%;
+
+}  
+
 
   /***************Animación nav********************/
 @keyframes marquee {
@@ -935,6 +1043,115 @@ footer {
     .cabecera-beeagency video{
       height:700px;
     }
+
+    .container-texto-creativo {
+      margin-bottom: 150px;
+    }
+  
+    .titulo-beeagency {
+      margin-left: 50px;
+      margin-top: 80px;
+      max-width: 90%;
+    }
+  
+    .text {
+      font-size: 3.2rem;
+    }
+  
+    .line-top {
+      height: 40px;
+      width: 35%;
+      top: 20px;
+      left: 410px;
+    }
+  
+    .line-bottom {
+      width: 850px;
+      height: 40px;
+      bottom: -40px;
+    }
+  
+    .handwritten {
+      font-size: 7rem;
+      bottom: -95px;
+      left: 80px;
+    }
+  
+    .texto-creativo {
+      margin-top: 150px;
+      flex-direction: column;
+      align-items: flex-start;
+      
+    }
+  
+    .texto-creativo p {
+      width: 70%;
+      left: 370px;
+      font-size: 1.8rem;
+    }
+  
+    .highlight2, .highlight3 {
+      font-size: 3.5rem;
+    }
+  
+    .tooltip img,
+    .tooltip2 img,
+    .tooltip3 img {
+      width: 400px;
+    }
+
+    .titulo-sectores {
+      margin-left: 100px;
+      margin-bottom: 150px;
+      margin-top: 80px;
+      max-width: 90%;
+    }
+  
+    .text-sectores {
+      font-size: 3.2rem;
+    }
+  
+    .line-top-sectores {
+      height: 40px;
+      width: 30%;
+      top: 20px;
+      left: 480px;
+    }
+  
+    .line-bottom-sectores {
+      width: 910px;
+      height: 40px;
+      bottom: -40px;
+    }
+  
+    .handwritten-sectores {
+      font-size: 8rem;
+      bottom: -100px;
+      left: 80px;
+    }
+  
+    .container-cards {
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin: 100px 20px;
+    }
+  
+    .card {
+      width: 240px;
+      height: 240px;
+    }
+  
+    .card-front img {
+      width: 180px;
+    }
+  
+    .card-back p {
+      font-size: 1rem;
+      margin-top: 30px;
+      padding: 0 15px;
+    }
+  
 }
 
 
@@ -1056,18 +1273,18 @@ footer {
 
 @media (max-width: 450px) {
 
-#typing-text {
-    font-size: 3rem;
-}
-  
-.cube .front,
-.cube .back {
-    font-size: 3rem;
-}
-  
-.footer-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+  #typing-text {
+      font-size: 3rem;
+  }
+    
+  .cube .front,
+  .cube .back {
+      font-size: 3rem;
+  }
+    
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
 }
